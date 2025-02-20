@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
       #- image: gcr.io/heptio-images/ks-guestbook-demo:0.2
-      - image: gcr.io/kuar-demo/kuard-amd64:1
+      #- image: gcr.io/kuar-demo/kuard-amd64:1
+      -image: ealen/echo-server:latest
         name: guestbook-ui
         ports:
         - containerPort: 80
