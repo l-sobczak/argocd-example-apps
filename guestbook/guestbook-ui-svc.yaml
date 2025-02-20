@@ -1,25 +1,25 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: guestbook-ui
-spec:
-  ports:
-  - port: 80
-    targetPort: 80
-  selector:
-    app: guestbook-ui
-# ---
 # apiVersion: v1
 # kind: Service
 # metadata:
-#   name: guestbook-ui-lb
+#   name: guestbook-ui
 # spec:
-#   type: LoadBalancer
 #   ports:
 #   - port: 80
 #     targetPort: 80
 #   selector:
-#     app: guestbook-ui-ingress
+#     app: guestbook-ui
+# ---
+apiVersion: v1
+kind: Service
+metadata:
+  name: guestbook-ui-lb
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: guestbook-ui-ingress
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -35,7 +35,7 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: guestbook-ui
+            name: guestbook-ui-lb
             port:
               number: 80
 # ---
