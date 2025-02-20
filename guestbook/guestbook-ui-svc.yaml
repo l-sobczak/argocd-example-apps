@@ -19,7 +19,7 @@ spec:
   - port: 80
     targetPort: 80
   selector:
-    app: guestbook-ui-ingress
+    app: guestbook-ui
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
